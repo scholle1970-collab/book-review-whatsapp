@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Book Review - Last Train to Forever</title>
+
+  <!-- Open Graph (WhatsApp / Facebook / Telegram preview) -->
+  <meta property="og:title" content="Book Review - Last Train to Forever" />
+  <meta property="og:description" content="Click to subscribe to SantoshCholleExcel — then watch the review video." />
+  <!-- Replace the URL below with the full HTTPS URL where your image will be hosted -->
+  <meta property="og:image" content="https://your-domain-or-githubpages.com/Book%20Review%20-%20Last%20Train%20to%20Forever.jpg" />
+  <meta property="og:image:alt" content="Book Review - Last Train to Forever" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; background:#111; color:#fff; }
+    .card { max-width:700px; width:100%; text-align:center; padding:18px; border-radius:12px; background:linear-gradient(180deg, #0f172a, #081028); box-shadow: 0 10px 30px rgba(0,0,0,.6);}
+    img { max-width:100%; border-radius:8px; display:block; margin:0 auto 12px; }
+    a.button { display:inline-block; padding:10px 18px; border-radius:8px; background:#ff0000; color:#fff; text-decoration:none; font-weight:700; }
+    p.small { font-size:0.9rem; color:#cbd5e1; margin:10px 0 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- clickable image (fallback if JS blocked) -->
+    <a id="biglink" href="https://www.youtube.com/@SantoshCholleExcel?sub_confirmation=1" target="_blank" rel="noopener">
+      <img alt="Book Review - Last Train to Forever" src="Book%20Review%20-%20Last%20Train%20to%20Forever.jpg" />
+    </a>
+
+    <h1>Book Review — Last Train to Forever</h1>
+    <p>Click the image to subscribe to SantoshCholleExcel — you'll then be sent to the review video.</p>
+    <p><a class="button" id="cta" href="https://www.youtube.com/@SantoshCholleExcel?sub_confirmation=1" target="_blank" rel="noopener">Subscribe & Watch</a></p>
+    <p class="small">If your browser blocks popups, click the image or the button above.</p>
+  </div>
+
+  <script>
+    // URLs you provided
+    const subscribeUrl = "https://www.youtube.com/@SantoshCholleExcel?sub_confirmation=1";
+    const videoUrl = "https://youtu.be/WlEBB2JqKM0?si=0dQNhGNhUj-V96lq";
+
+    // If user clicks anywhere on the image/card, open subscribe tab and then redirect this page to the video.
+    function openAndRedirect(e) {
+      e && e.preventDefault();
+      try {
+        // open subscribe in new tab
+        window.open(subscribeUrl, '_blank', 'noopener,noreferrer');
+      } catch(err) {
+        // ignore
+      }
+      // short delay so subscribe tab has time to start — then send this tab to the video
+      setTimeout(function(){
+        window.location.href = videoUrl;
+      }, 900);
+      return false;
+    }
+
+    // attach to image and CTA
+    document.getElementById('biglink').addEventListener('click', openAndRedirect);
+    document.getElementById('cta').addEventListener('click', openAndRedirect);
+
+    // Also, if someone lands on the page directly, auto-do the flow once.
+    window.addEventListener('load', function(){
+      // don't auto-run if user intentionally opened in same tab and might want to read — so comment this out if undesired.
+      // Uncomment the next line if you want automatic behavior on load:
+      // openAndRedirect();
+    });
+  </script>
+</body>
+</html>
